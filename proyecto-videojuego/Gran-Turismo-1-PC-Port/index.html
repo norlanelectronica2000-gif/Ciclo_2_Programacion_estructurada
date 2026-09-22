@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gran Turismo PC Port</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <audio id="musicaFondo" loop>
+        <source src="audio/musica_fondo.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+    <div class="contenedor-principal">        
+        <div id="menu-principal" class="pantalla activa">
+            <div class="contenedor-miniatura">
+                <img src="img/Gran_Turismo_PC_Port.jpeg" alt="Miniatura del Juego" class="miniatura">
+            </div>
+            <div class="menu-botones">
+                <button id="btn-iniciar" class="btn">Iniciar</button>
+                <button id="btn-config" class="btn">Configuración</button>
+            </div>
+        </div>
+        <div id="menu-configuracion" class="pantalla oculta">
+            <h2>Configuración</h2>
+            <div class="pestanas-config">
+                <button class="btn-pestana activa" onclick="cambiarPestana('video', event)">Video</button>
+                <button class="btn-pestana" onclick="cambiarPestana('controles', event)">Controles</button>
+            </div>
+            <div id="seccion-video" class="seccion-config activa">
+                <div class="opcion-config">
+                    <label for="fps">FPS Máximos:</label>
+                    <select id="fps">
+                        <option value="30">30 FPS</option>
+                        <option value="60" selected>60 FPS</option>
+                        <option value="120">120 FPS</option>
+                        <option value="ilimitados">Ilimitados</option>
+                    </select>
+                </div>
+                <div class="opcion-config">
+                    <label for="graficos">Calidad Gráfica:</label>
+                    <select id="graficos">
+                        <option value="bajos">Bajos</option>
+                        <option value="medios" selected>Medios</option>
+                        <option value="altos">Altos</option>
+                        <option value="ultra">Ultra</option>
+                    </select>
+                </div>
+                <div class="opcion-config">
+                    <label for="vista-fps">Mostrar Contador de FPS:</label>
+                    <input type="checkbox" id="vista-fps" checked>
+                </div>
+            </div>
+
+            <div id="seccion-controles" class="seccion-config oculta contenedor-scroll">
+                <p class="instruccion-ctrl">Haz clic en la tecla y presiona una nueva para reasignarla:</p>
+                <div class="opcion-config"><label>Girar Izquierda:</label><button class="btn-tecla ps-dpad" onclick="reasignarTecla(this)">←</button></div>
+                <div class="opcion-config"><label>Girar Derecha:</label><button class="btn-tecla ps-dpad" onclick="reasignarTecla(this)">→</button></div>
+                <div class="opcion-config"><label>Mirar Arriba:</label><button class="btn-tecla ps-dpad" onclick="reasignarTecla(this)">↑</button></div>
+                <div class="opcion-config"><label>Mirar Abajo:</label><button class="btn-tecla ps-dpad" onclick="reasignarTecla(this)">↓</button></div>
+                <hr class="separador">
+                
+                <div class="opcion-config"><label>Acelerar:</label><button class="btn-tecla ps-cruz" onclick="reasignarTecla(this)">✕</button></div>
+                <div class="opcion-config"><label>Freno:</label><button class="btn-tecla ps-cuadrado" onclick="reasignarTecla(this)">□</button></div>
+                <div class="opcion-config"><label>Freno de Mano:</label><button class="btn-tecla ps-circulo" onclick="reasignarTecla(this)">○</button></div>
+                <div class="opcion-config"><label>Marcha Atrás:</label><button class="btn-tecla ps-triangulo" onclick="reasignarTecla(this)">△</button></div>
+                <hr class="separador">
+                
+                <div class="opcion-config"><label>Vista Trasera (L1):</label><button class="btn-tecla ps-hombro" onclick="reasignarTecla(this)">L1</button></div>
+                <div class="opcion-config"><label>Bajar Marcha (L2):</label><button class="btn-tecla ps-hombro" onclick="reasignarTecla(this)">L2</button></div>
+                <div class="opcion-config"><label>Cambiar Cámara (R1):</label><button class="btn-tecla ps-hombro" onclick="reasignarTecla(this)">R1</button></div>
+                <div class="opcion-config"><label>Subir Marcha (R2):</label><button class="btn-tecla ps-hombro" onclick="reasignarTecla(this)">R2</button></div>
+                <hr class="separador">
+
+                <div class="opcion-config"><label>Opciones (Select):</label><button class="btn-tecla ps-sys" onclick="reasignarTecla(this)">SELECT</button></div>
+                <div class="opcion-config"><label>Pausa (Start):</label><button class="btn-tecla ps-sys" onclick="reasignarTecla(this)">START</button></div>
+            </div>
+
+            <button id="btn-volver" class="btn btn-secundario">Volver al Menú</button>
+        </div>
+
+        <div id="pantalla-juego" class="pantalla oculta">
+            <h2>3 2 1 ... A competir</h2>
+            <p>Preparando pista para Gran Turismo...</p>
+            <button id="btn-salir-juego" class="btn btn-secundario">Salir al Menú</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
