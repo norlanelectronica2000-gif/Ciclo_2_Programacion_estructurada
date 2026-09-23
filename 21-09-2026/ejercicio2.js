@@ -7,12 +7,12 @@ const rl = readline.createInterface({
 
 rl.question('Ingrese las horas que duro cada prestamo: ', horas=>{
 
-    let cobroHora = Number(horas);
+    let cobroHora = parseFloat(horas);
     let cobro = 2.25;
     let cobroTotal = 0;
 
     for (let prestamo=1; prestamo<=4; prestamo++){
-        let cobroTotal=cobroTotal+cobroHora;
+        cobroTotal=cobroTotal+cobroHora;
         cobroHora=cobro*cobroHora;
         console.log('Prestamo: '+prestamo);
         console.log('Cobro por hora: $'+cobroHora.toFixed(2));
